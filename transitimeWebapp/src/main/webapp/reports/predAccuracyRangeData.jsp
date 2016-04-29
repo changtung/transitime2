@@ -53,7 +53,7 @@
 	// that could bog down the database.
 	if (Integer.parseInt(numDays) > 31) {
 		throw new ParseException(
-				"Number of days of " + numDays + " spans more than a month", 0);
+				"Liczba dni " + numDays + " przekracza miesiąc", 0);
 	}
 
     try {

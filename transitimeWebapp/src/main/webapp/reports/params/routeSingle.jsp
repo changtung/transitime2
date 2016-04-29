@@ -47,7 +47,7 @@ $.getJSON(apiUrlPrefix + "/command/routes",
 </script>
 
     <div id="routesDiv"  class="param">
-      <label for="route">Route:</label>
+      <label for="route">Linia:</label>
       <select id="route" name="r" style="width: 380px" 
       	title="Select which route you want data for. " ></select>
     </div>

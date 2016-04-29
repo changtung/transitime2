@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <%@include file="/template/includes.jsp" %>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Specify Parameters</title>
 
   <!-- Load in Select2 files so can create fancy route selector -->
@@ -16,7 +16,7 @@
 <body>
 <%@include file="/template/header.jsp" %>
 <div id="title">
-   Select Parameters for Schedule Adherence by Stop Chart
+   Wybierz parametry dla wykresu przestrzegania rozkładów według przystanku
 </div>
 
 <div id="mainDiv">
@@ -29,21 +29,17 @@
    <jsp:include page="params/fromToDateTime.jsp" />
      
    <div class="param">
-    <label for="allowableEarly">Allowable Early:</label>
+    <label for="allowableEarly">Dopuszczalne przyspieszenie:</label>
     <input id="allowableEarly" name="allowableEarly"
-    	title="How early a vehicle can arrive compared to the prediction
-    	and still be acceptable. Must be a negative number to indicate
-    	early." 
+    	title="Dopuszczalne przyspieszenie, aby prognoza była nadal akceptowana. Proszę użyć wartości ujemnej, aby wskazać przyspieszenie." 
     	size="1"
     	value="1.0" /> <span class="note">minutes</span>
   </div>
  
    <div class="param">
-    <label for="allowableLate">Allowable Late:</label>
+    <label for="allowableLate">Dopuszczalne opóźnienie:</label>
     <input id="allowableLate" name="allowableLate"
-    	title="How late a vehicle can arrive compared to the prediction
-    	and still be acceptable. Must be a positive number to indicate
-    	late." 
+    	title="Dopuszczalne opóźnienie, aby prognoza była nadal akceptowana. Proszę użyć wartości dodatniej, aby wskazać przyspieszenie." 
     	size="1" 
     	value="4.0"/> <span class="note">minutes</span>
   </div>

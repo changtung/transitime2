@@ -28,7 +28,7 @@ if (agencyId == null || beginDate == null || numDays == null) {
 // that could bog down the database.
 if (Integer.parseInt(numDays) > 31) {
 	throw new ParseException(
-			"Number of days of " + numDays + " spans more than a month", 0);
+			"Liczba dni " + numDays + " przekracza miesiąc", 0);
 }
 
 // Determine the time portion of the SQL

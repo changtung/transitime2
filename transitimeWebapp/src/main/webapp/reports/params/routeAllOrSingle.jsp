@@ -22,7 +22,7 @@ $.getJSON(apiUrlPrefix + "/command/routes",
 	        // string because then it returns the text 'All Routes'.
 	        // So need to use a blank string that can be determined
 	        // to be empty when trimmed.
-	 		var selectorData = [{id: ' ', text: 'All Routes'}];
+	 		var selectorData = [{id: ' ', text: 'Wszystkie linie'}];
 	 		for (var i in routes.routes) {
 	 			var route = routes.routes[i];
 	 			selectorData.push({id: route.shortName, text: route.name})
@@ -50,10 +50,8 @@ $.getJSON(apiUrlPrefix + "/command/routes",
 </script>
 
     <div id="routesDiv"  class="param">
-      <label for="route">Route:</label>
+      <label for="route">Linia:</label>
       <select id="route" name="r" style="width: 380px" 
-      	title="Select which route you want data for. Note: selecting all routes
-      		   indeed reads in data for all routes which means it could be 
-      		   somewhat slow."></select>
+      	title="Wybierz linię, dla której chcesz dane. Uwaga: wybranie wszystkich linii spowoduje czytanie wszystkich danych dla wszystkich linii, co może być długotrwałe."></select>
     </div>
     

@@ -21,7 +21,7 @@ $.getJSON(apiUrlPrefix + "/command/routes",
 	        // string because then it returns the text 'All Routes'.
 	        // So need to use a blank string that can be determined
 	        // to be empty when trimmed.
-	 		var selectorData = [{id: ' ', text: 'All Routes'}];
+	 		var selectorData = [{id: ' ', text: 'Wszystkie linie'}];
 	 		for (var i in routes.routes) {
 	 			var route = routes.routes[i];
 	 			selectorData.push({id: route.shortName, text: route.name})
@@ -50,7 +50,7 @@ $.getJSON(apiUrlPrefix + "/command/routes",
 </script>
 
     <div id="routesDiv"  class="param">
-      <label for="route">Routes:</label>
+      <label for="route">Linie:</label>
       <select id="route" name="r" style="width: 380px" multiple="multiple"
       	title="Select which routes you want data for. You can use the Ctrl key along
       		   with the mouse to select multiple routes. Note: selecting all routes

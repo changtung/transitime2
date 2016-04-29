@@ -1,6 +1,6 @@
 <%-- Displays the schedule for a route--%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="org.transitime.utils.web.WebUtils" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
@@ -77,7 +77,7 @@ if (agencyId == null || agencyId.isEmpty()) {
                       tripName = timesForTrip.tripId;
                   var tripNameTooLong = tripName.length > 6;
                   var html = tripNameTooLong ?
-                      "Block&nbsp;" + timesForTrip.blockId : "Trip&nbsp;" + tripName;
+                      "Zadanie (grupa zadań)&nbsp;" + timesForTrip.blockId : "Kurs&nbsp;" + tripName;
                   var headerCell = row.insertCell(0);
                   headerCell.id = 'headerCell';
                   headerCell.innerHTML = html;
@@ -106,7 +106,7 @@ if (agencyId == null || agencyId.isEmpty()) {
             
   </script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Schedule Report</title>
 </head>
 <body>

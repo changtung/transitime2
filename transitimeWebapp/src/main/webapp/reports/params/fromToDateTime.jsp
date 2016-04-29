@@ -58,32 +58,28 @@ String currentDateStr = org.transitime.utils.Time.dateStr(new java.util.Date());
 %>
   
   <div class="param">
-    <label for="dateRange">Date Range:</label>
+    <label for="dateRange">Zakres dat:</label>
     <input type="text" id="dateRange" name="dateRange"  class="datepicker-here"
-    	title="Range of dates report should be run for" 
+    	title="Zakres dat, dla których ma być utworzony raport" 
     	size="24"
     	value="<%= currentDateStr%>" />
   </div>
 
   <div class="param">
-    <label for="beginTime">Begin Time:</label>
+    <label for="beginTime">Czas początkowy:</label>
     <input id="beginTime" name="beginTime"
-    	title="Optional begin time of day to limit query to. Useful if
-    	    want to see result just for rush hour, for example. Leave blank 
-    		if want data for entire day. 
-    		<br/><br/>Format: hh:mm, as in '07:00' for 7AM." 
+    	title="Opcjonalny czas początkowy, w celu zmniejszenia zapytania. Przydatne, jeśli chcesz na przykład zobaczyć rezultaty dla godzin szczytu. Pozostaw puste, jeśli chcesz zobaczyć dane dla całego dnia.. 
+    		<br/><br/>Format: gg:mm, np. 07:00" 
     	size="3"
     	value="" /> <span class="note">(hh:mm)</span>
   </div>
 
   <div class="param">
-    <label for="endTime">End Time:</label>
+    <label for="endTime">Czas końcowy:</label>
     <input id="endTime" name="endTime" 
-    	title="Optional end time of day to limit query to. Useful if
-    	    want to see result just for rush hour, for example. Leave blank 
-    		if want data for entire day. 
-    		<br/><br/>Format: hh:mm, as in '09:00' for 9AM. 
-    		Use '23:59' for midnight."
+    	title="Opcjonalny czas końcowy, w celu zmniejszenia zapytania. Przydatne, jeśli chcesz na przykład zobaczyć rezultaty dla godzin szczytu. Pozostaw puste, jeśli chcesz zobaczyć dane dla całego dnia. 
+    		<br/><br/>Format: gg:mm, np. 09:00. 
+    		Używaj '23:59' dla północy."
     	size="3"
     	value="" /> <span class="note">(hh:mm)</span>
   </div>

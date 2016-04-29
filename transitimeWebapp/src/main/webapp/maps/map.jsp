@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="org.transitime.web.WebConfigParams"%>
 
@@ -56,9 +56,9 @@
     
   </style>
   
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
-  <title>Transitime Map</title>
+  <title>KiedyBus mapa</title>
 </head>
 
 <body>
@@ -158,10 +158,10 @@ function predictionCallback(preds, status) {
 	var stopName = routeStopPreds.stopName;
 	if (routeStopPreds.stopCode)
 		stopName += " (" + routeStopPreds.stopCode + ")";
-	var content = '<b>Route:</b> ' + routeStopPreds.routeName + '<br/>' 
+	var content = '<b>Linia:</b> ' + routeStopPreds.routeName + '<br/>' 
 		+ '<b>Stop:</b> ' + stopName + '<br/>';
 	if (verbose)
-		content += '<b>Stop Id:</b> ' + routeStopPreds.stopId + '<br/>';
+		content += '<b>Id Przystanku:</b> ' + routeStopPreds.stopId + '<br/>';
 		
 	// For each destination add predictions
 	for (var i in routeStopPreds.dest) {
@@ -172,7 +172,7 @@ function predictionCallback(preds, status) {
 		
 		// Add the destination/headsign info
 		if (routeStopPreds.dest[i].headsign)
-			content += '<b>Destination:</b> ' + routeStopPreds.dest[i].headsign + '<br/>';
+			content += '<b>Cel:</b> ' + routeStopPreds.dest[i].headsign + '<br/>';
 		
 		// Add each prediction for the current destination
 		if (routeStopPreds.dest[i].pred.length > 0) {
@@ -405,15 +405,15 @@ function getVehiclePopupContent(vehicleData) {
     var directionStr = verbose ? "<br/><b>Direction:</b> " + vehicleData.direction : ""; 
     var tripPatternStr = verbose ? "<br/><b>Trip Pattern:</b> " + vehicleData.tripPattern : "";
     
-    var content = "<b>Vehicle:</b> " + vehicleData.id 
-    	+ "<br/><b>Route: </b> " + vehicleData.routeShortName
+    var content = "<b>Pojazd:</b> " + vehicleData.id 
+    	+ "<br/><b>Linia: </b> " + vehicleData.routeShortName
 		+ latLonHeadingStr
-		+ "<br/><b>GPS Time:</b> " + gpsTimeStr
-		+ "<br/><b>Headsign:</b> " + vehicleData.headsign
+		+ "<br/><b>Czas GPS:</b> " + gpsTimeStr
+		+ "<br/><b>Kierunek:</b> " + vehicleData.headsign
 		+ directionStr 
-		+ "<br/><b>SchAdh:</b> " + vehicleData.schAdhStr 
-		+ "<br/><b>Block:</b> " + vehicleData.block
-		+ "<br/><b>Trip:</b> " + vehicleData.trip
+		+ "<br/><b>Przy/Opóź:</b> " + vehicleData.schAdhStr 
+		+ "<br/><b>Zadanie (grupa zadań):</b> " + vehicleData.block
+		+ "<br/><b>Kurs:</b> " + vehicleData.trip
 		+ tripPatternStr
 		+ layoverStr
 		+ layoverDepartureStr
@@ -852,8 +852,8 @@ L.control.zoom({position: 'bottomleft'}).addTo(map);
 var mapTileUrl = '<%= WebConfigParams.getMapTileUrl() %>'; 
 L.tileLayer(mapTileUrl, {
 	// Specifying a shorter version of attribution. Original really too long.
-    //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery � <a href="http://mapbox.com">Mapbox</a>',
-    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> &amp; <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery �<%= WebConfigParams.getMapTileCopyright() %>',
+    //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> &amp; <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery ©<%= WebConfigParams.getMapTileCopyright() %>',
     maxZoom: 19
 }).addTo(map);
 
@@ -907,7 +907,7 @@ if (!getRouteQueryStrParam()) {
   $.getJSON(apiUrlPrefix + "/command/routes?keepDuplicates=true", 
  		function(routes) {
 	        // Generate list of routes for the selector
-	 		var selectorData = [{id: '', text: 'Select Route'}];
+	 		var selectorData = [{id: '', text: 'Wybierz linię'}];
 	 		for (var i in routes.routes) {
 	 			var route = routes.routes[i];
 	 			selectorData.push({id: route.id, text: route.name})
@@ -916,7 +916,7 @@ if (!getRouteQueryStrParam()) {
 	 		// Configure the selector to be a select2 one that has
 	 		// search capability
  			$("#routes").select2({
- 				placeholder: "Select Route", 				
+ 				placeholder: "Wybierz linię", 				
  				data : selectorData})
  				// Called when user selects route. Draws route and associated vehicles on map.
  				.on("select2:select", function(e) {

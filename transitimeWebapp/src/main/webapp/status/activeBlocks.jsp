@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 String agencyId = request.getParameter("a");
@@ -186,7 +186,7 @@ function handleAjaxData(routes) {
  				     "  <span class='routeValue' id='routeVehicles' title='Number of vehicles assigned to blocks and predictable for the route'></span>" + 
  				     "  <span class='routeLabel' id='routeVehiclesLabel' title='Number of vehicles assigned to blocks and predictable for the route'>Assigned:</span>" +
  				     "  <span class='routeValue' id='routeBlocks' title='Number of blocks currently active for the route'></span>" + 
- 				     "  <span class='routeLabel' id='routeBlocksLabel' title='Number of blocks currently active for the route'>Blocks:</span>" +
+ 				     "  <span class='routeLabel' id='routeBlocksLabel' title='Number of blocks currently active for the route'>Zadania (grupy zadań):</span>" +
 					 " </h3>" +
  					 " <div id='blocksDiv'><table id='blocksTable'></table></div>" +
  					 "</div>");	
@@ -259,20 +259,20 @@ function handleAjaxData(routes) {
 			if (blockElement.length == 0) {
 				blocksTable.append(
 						"<tr id='" + blockElementId + "'>" +
-						" <td class='blockLabel'>Block:</td><td id='block'></td>" +
+						" <td class='blockLabel'>Zadanie (grupa zadań):</td><td id='block'></td>" +
 						" <td class='blockLabel'>Start:</td><td id='blockStart'></td>" + 
 						" <td class='blockLabel'>End:</td><td id='blockEnd'></td>" + 
 						" <td class='blockLabel'>Service:</td><td id='blockService'></td>" +
 						"</tr>" +
 						"<tr id='" + blockElementId + "'>" +
-						" <td class='blockLabel'>Trip:</td><td id='trip'></td>" + 
-						" <td class='blockLabel'>Start:</td><td id='tripStart'></td>" + 
-						" <td class='blockLabel'>End:</td><td id='tripEnd'></td>" + 
-						" <td class='blockLabel'>Headsign:</td><td id='tripHeadsign'></td>" + 
+						" <td class='blockLabel'>Kurs:</td><td id='trip'></td>" + 
+						" <td class='blockLabel'>Początek:</td><td id='tripStart'></td>" + 
+						" <td class='blockLabel'>Koniec:</td><td id='tripEnd'></td>" + 
+						" <td class='blockLabel'>Kierunek:</td><td id='tripHeadsign'></td>" + 
 						"</tr>" +
 						"<tr id='" + blockElementId + "'>" +
-						" <td class='blockLabel'>Vehicle:</td><td id='vehiclesForBlock'></td>" +
-						" <td class='blockLabel'>Adh:</td><td id='vehicleSchedAdh'></td>" +
+						" <td class='blockLabel'>Pojazd:</td><td id='vehiclesForBlock'></td>" +
+						" <td class='blockLabel'>Przys/Opóź:</td><td id='vehicleSchedAdh'></td>" +
 						"</tr>");
 			}
 			
@@ -434,16 +434,16 @@ $(function() {
 
 </script>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Active Blocks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Aktywne zadania</title>
 </head>
 <body>
 <%@include file="/template/header.jsp" %>
 
-<div id="title">Active Blocks</div>
+<div id="title">Aktywne zadania</div>
 <div id="accordion"></div>
 <div id="summary">
-  <span id="totalBlocksLabel" title="Total number of blocks">Blocks:</span>
+  <span id="totalBlocksLabel" title="Total number of blocks">Zadania (grupy zadań):</span>
   <span id="totalBlocksValue" title="Total number of blocks"></span>
   <span id="percentWithVehiclesLabel" title="Percentage of blocks that have an assigned and predictable vehicle">Assigned:</span>
   <span id="percentWithVehiclesValue" title="Percentage of blocks that have an assigned and predictable vehicle"></span>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <%@ page import="org.transitime.utils.web.WebUtils" %>
 <%@page import="org.transitime.db.webstructs.WebAgency"%>
@@ -33,7 +33,7 @@ String numDays = request.getParameter("numDays");
 String beginTime = request.getParameter("beginTime");
 String endTime = request.getParameter("endTime");
 
-String chartTitle = "Prediction Accuracy for "
+String chartTitle = "Dokładność prognozy dla "
 	+ WebAgency.getCachedWebAgency(agencyId).getAgencyName()   
 	+ titleRoutes 
 	+ source 
@@ -51,8 +51,8 @@ if ((beginTime != null && !beginTime.isEmpty()) || (endTime != null && !endTime.
   <head>
     <%@include file="/template/includes.jsp" %>
     
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Prediction Accuracy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Dokładność prognozy</title>
     
     <style>
        #loading {
@@ -163,7 +163,7 @@ if ((beginTime != null && !beginTime.isEmpty()) || (endTime != null && !endTime.
        	        // Nice to show a faint line for every 30 seconds as well
             	minorGridlines: {count: 1}
        	    },
-            vAxis: {title: 'Prediction Accuracy (secs) (postive means vehicle later than predicted)',
+            vAxis: {title: 'Dokładność prognozy (secs) (postive means vehicle later than predicted)',
             	// Try to show accuracy on a consistent vertical axis and 
             	// divide into minutes. This unfortunately won't work well
             	// if values are greater than 300 because then chart will

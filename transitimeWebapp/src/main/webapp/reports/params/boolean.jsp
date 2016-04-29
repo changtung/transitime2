@@ -15,7 +15,7 @@ if (tooltipStr == null)
   <div class="param">
      <label for="<%= name %>"><%= label %>:</label> 
      <select id="<%= name %>" name="<%= name %>" title="<%= tooltipStr %>">
-       <option value="true"  <%=  defaultValue ? "selected=\"selected\"" : ""%>>True</option>
-       <option value="false" <%= !defaultValue ? "selected=\"selected\"" : ""%>>False</option>
+       <option value="true"  <%=  defaultValue ? "selected=\"selected\"" : ""%>>Prawda</option>
+       <option value="false" <%= !defaultValue ? "selected=\"selected\"" : ""%>>Fałsz</option>
      </select>
    </div>

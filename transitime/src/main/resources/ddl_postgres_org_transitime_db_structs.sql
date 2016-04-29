@@ -230,11 +230,11 @@
         minLat float8,
         minLon float8,
         hidden boolean,
-        longName varchar(80),
+        longName varchar(800),
         maxDistance float8,
         name varchar(80),
         routeOrder int4,
-        shortName varchar(80),
+        shortName varchar(800),
         textColor varchar(10),
         type varchar(2),
         primary key (id, configRev)

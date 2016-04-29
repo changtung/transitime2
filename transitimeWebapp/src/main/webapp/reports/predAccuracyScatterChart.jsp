@@ -28,7 +28,7 @@ String numDays = request.getParameter("numDays");
 String beginTime = request.getParameter("beginTime");
 String endTime = request.getParameter("endTime");
 
-String chartTitle = "Prediction Accuracy for " 
+String chartTitle = "Dokładność prognozy dla " 
 	+ WebAgency.getCachedWebAgency(agencyId).getAgencyName()    
 	+ titleRoutes 
 	+ source 
@@ -145,7 +145,7 @@ if ((beginTime != null && !beginTime.isEmpty()) || (endTime != null && !endTime.
         	          {v:840, f:'14'},
         	          {v:900, f:'15'}]
                },
-          vAxis: {title: 'Prediction Accuracy (secs) (postive means vehicle later than predicted)', 
+          vAxis: {title: 'Dokładność prognozy (secs) (postive means vehicle later than predicted)', 
           	  // Try to show accuracy on a consistent vertical axis and 
           	  // divide into minutes. This unfortunately won't work well
           	  // if values are greater than 360 because then chart will

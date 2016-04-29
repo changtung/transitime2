@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%-- Shows real-time schedule adherence, for all vehicles, in a map.  --%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="org.transitime.web.WebConfigParams"%>
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Schedule Adherence Map</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mapa przestrzegania rozkładu</title>
 
   <!-- So that get proper sized map on iOS mobile device -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -47,16 +47,16 @@ var vehicleLayer;
  */
 function getVehiclePopupContent(vehicle) {
 	var content =
-		"<b>Vehicle:</b> " + vehicle.id 
-		+ "<br/><b>Route:</b> " + vehicle.routeName;
+		"<b>Pojazd:</b> " + vehicle.id 
+		+ "<br/><b>Linia:</b> " + vehicle.routeName;
 	if (vehicle.headsign)
-		content += "<br/><b>To:</b> " + vehicle.headsign;
+		content += "<br/><b>Do:</b> " + vehicle.headsign;
 	if (vehicle.schAdhStr)
-		content += "<br/><b>SchAhd:</b> " + vehicle.schAdhStr;
+		content += "<br/><b>Przy/Opóź:</b> " + vehicle.schAdhStr;
 	if (vehicle.block)
-		content += "<br/><b>Block:</b> " + vehicle.block;
+		content += "<br/><b>Zadanie (grupa zadań):</b> " + vehicle.block;
 	if (vehicle.driver)
-		content += "<br/><b>Driver:</b> " + vehicle.driver;
+		content += "<br/><b>Kierowca:</b> " + vehicle.driver;
 	
 	return content;
 }
@@ -212,8 +212,8 @@ function createMap(mapTileUrl, mapTileCopyright) {
 	
 	L.tileLayer(mapTileUrl, {
 		// Specifying a shorter version of attribution. Original really too long.
-	    //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery � <a href="http://mapbox.com">Mapbox</a>',
-	    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> &amp; <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery �<%= WebConfigParams.getMapTileCopyright() %>',
+	    //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> &amp; <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery ©<%= WebConfigParams.getMapTileCopyright() %>',
 	    maxZoom: 19
 	}).addTo(map);
 

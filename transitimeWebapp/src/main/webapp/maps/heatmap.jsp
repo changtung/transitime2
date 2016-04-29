@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%-- This heapmap page was just an experiment and wasn't completed and doesn't work.
      It is kept here for now only in case want to look at creating another heatmap
      in the future. --%>    
@@ -8,7 +8,7 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Schedule Adherence</title>
 
   <!-- So that get proper sized map on iOS mobile device -->
@@ -89,8 +89,8 @@ function createMap(mapTileUrl, mapTileCopyright) {
 	
 	var baseTiles = L.tileLayer(mapTileUrl,
 			  // Specifying a shorter version of attribution. Original really too long.
-			  //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			  {attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> &amp; <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © ' + mapTileCopyright,
+			  //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
+			  {attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> &amp; <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery Â© ' + mapTileCopyright,
 			   maxZoom: 19
 			   });
 

@@ -1,7 +1,7 @@
 <%@page import="org.transitime.db.webstructs.WebAgency"%>
 <%@page import="java.util.Collection"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,14 +40,14 @@
   	
   </style>
     
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Agencies</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Przewoźnik</title>
 </head>
 
 <body>
 <%@include file="/template/header.jsp" %>
 <div id="mainDiv">
-<div id="title">Agencies</div>
+<div id="title">Przewoźnik</div>
 <table id="agencyList">
 <%
 // Output links for all the agencies
@@ -59,10 +59,10 @@ for (WebAgency webAgency : webAgencies) {
 	%>
 	<tr>
 	  <td><div id=agencyName><%= webAgency.getAgencyName() %></div></td>
-	  <td><a href="<%= request.getContextPath() %>/maps/index.jsp?a=<%= webAgency.getAgencyId() %>" title="Real-time maps">Maps</a></td>
-	  <td><a href="<%= request.getContextPath() %>/reports/index.jsp?a=<%= webAgency.getAgencyId() %>" title="Reports on historic information">Reports</a></td>
-	  <td><a href="<%= request.getContextPath() %>/reports/apiCalls/index.jsp?a=<%= webAgency.getAgencyId() %>" title="API calls">API</a></td>
-	  <td><a href="<%= request.getContextPath() %>/status/index.jsp?a=<%= webAgency.getAgencyId() %>" title="Pages showing current status of system">Status</a></td>
+	  <td><a href="<%= request.getContextPath() %>/maps/index.jsp?a=<%= webAgency.getAgencyId() %>" title="Dynamiczne mapy">Mapy</a></td>
+	  <td><a href="<%= request.getContextPath() %>/reports/index.jsp?a=<%= webAgency.getAgencyId() %>" title="Raporty danych historycznych">Raporty</a></td>
+	  <td><a href="<%= request.getContextPath() %>/reports/apiCalls/index.jsp?a=<%= webAgency.getAgencyId() %>" title="API">API</a></td>
+	  <td><a href="<%= request.getContextPath() %>/status/index.jsp?a=<%= webAgency.getAgencyId() %>" title="Statusy ">Status</a></td>
 	</tr>
 	<%
 }

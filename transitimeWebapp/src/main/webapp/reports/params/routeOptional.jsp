@@ -23,7 +23,7 @@ $.getJSON(apiUrlPrefix + "/command/routes",
 	        // string because then it returns the text 'All Routes'.
 	        // So need to use a blank string that can be determined
 	        // to be empty when trimmed.
-	 		var selectorData = [{id: ' ', text: 'Optionally Select Route'}];
+	 		var selectorData = [{id: ' ', text: 'Opcjonalnie wybierz linie'}];
 	 		for (var i in routes.routes) {
 	 			var route = routes.routes[i];
 	 			selectorData.push({id: route.shortName, text: route.name})
@@ -52,8 +52,8 @@ $.getJSON(apiUrlPrefix + "/command/routes",
 </script>
 
     <div id="routesDiv"  class="param">
-      <label for="route">Route:</label>
+      <label for="route">Linia:</label>
       <select id="route" name="r" style="width: 380px" 
-      	title="For when you want to optionally display information about a route."></select>
+      	title="W przypadku, kiedy chcesz opcjonalnie wyświetlić informacje o linii."></select>
     </div>
     
