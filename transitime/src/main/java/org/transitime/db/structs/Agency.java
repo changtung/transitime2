@@ -191,7 +191,7 @@ public class Agency implements Serializable {
 	 */
 	public static TimeZone getTimeZoneFromDb(String agencyId) {
 		int configRev = ActiveRevisions.get(agencyId).getConfigRev();
-		
+		System.out.println("activeRevisions="+ActiveRevisions.get(agencyId));
 		List<Agency> agencies = getAgencies(agencyId, configRev);
 		if (agencies.size() != 0)
 			return agencies.get(0).getTimeZone();

@@ -34,6 +34,7 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.transitime.api.data.ApiActiveBlocks;
 import org.transitime.api.data.ApiActiveBlocksRoutes;
 import org.transitime.api.data.ApiAgencies;
 import org.transitime.api.data.ApiAgency;
@@ -97,6 +98,8 @@ import org.transitime.ipc.interfaces.PredictionsInterface.RouteStop;
 @Path("/key/{key}/agency/{agency}")
 public class TransitimeApi {
 
+	
+	
 	/**
 	 * Handles the "vehicles" command. Returns data for all vehicles or for the
 	 * vehicles specified via the query string.
@@ -608,14 +611,14 @@ public class TransitimeApi {
 			
 			// Get agency info so can also return agency name
 			List<Agency> agencies = inter.getAgencies();
-			
+			System.out.println(agencies.size());
 			// Get route data from server
 			ApiRoutes routesData;
 			if (routeIdsOrShortNames == null || routeIdsOrShortNames.isEmpty()) {
 				// Get all routes
 				List<IpcRouteSummary> routes = 
 						new ArrayList<IpcRouteSummary>(inter.getRoutes());
-				
+				System.out.println(routes.size());
 				// Handle duplicates. If should keep duplicates (where couple
 				// of routes have the same route_short_name) then modify 
 				// the route name to indicate the different IDs. If should
@@ -623,6 +626,7 @@ public class TransitimeApi {
 				Collection<IpcRouteSummary> processedRoutes = 
 						new ArrayList<IpcRouteSummary>();
 				for (int i = 0; i < routes.size()-1; ++i) {
+					System.out.println(routes.get(i).getName());
 					IpcRouteSummary route = routes.get(i);
 					IpcRouteSummary nextRoute = routes.get(i+1);
 					
@@ -661,6 +665,7 @@ public class TransitimeApi {
 				routesData = new ApiRoutes(ipcRoutes, agencies.get(0));
 			}
 			
+			System.out.println(stdParameters.getAgencyId() + " "+stdParameters.getKey());
 			// Create and return response
 			return stdParameters.createResponse(routesData);
 		} catch (Exception e) {
@@ -962,6 +967,39 @@ public class TransitimeApi {
 	 * @return
 	 * @throws WebApplicationException
 	 */
+	@Path("/command/activeBlocks")
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public
+			Response
+			getActiveBlocks(
+					@BeanParam StandardParameters stdParameters,
+					@QueryParam(value = "r") List<String> routesIdOrShortNames,
+					@QueryParam(value = "t") @DefaultValue("0") int allowableBeforeTimeSecs)
+					throws WebApplicationException {
+
+		// Make sure request is valid
+		stdParameters.validate();
+
+		try {
+			// Get active block data from server
+			VehiclesInterface vehiclesInterface =
+					stdParameters.getVehiclesInterface();
+			Collection<IpcActiveBlock> activeBlocks =
+					vehiclesInterface.getActiveBlocks(routesIdOrShortNames,
+							allowableBeforeTimeSecs);
+
+			// Create and return ApiBlock response
+			ApiActiveBlocks apiActiveBlocks =
+					new ApiActiveBlocks(activeBlocks,
+							stdParameters.getAgencyId());
+			return stdParameters.createResponse(apiActiveBlocks);
+		} catch (Exception e) {
+			// If problem getting data then return a Bad Request
+			throw WebUtils.badRequestException(e.getMessage());
+		}
+	}
+
 	@Path("/command/activeBlocksByRoute")
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })

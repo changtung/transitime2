@@ -686,14 +686,16 @@ public class DbConfig {
 		blocks = Block.getBlocks(globalSession, configRev);
 		blocksByServiceMap = putBlocksIntoMap(blocks);
 		blocksByRouteMap = putBlocksIntoMapByRoute(blocks);
-		logger.debug("Reading blocks took {} msec", timer.elapsedMsec());
+		logger.info("Reading blocks took {} msec", timer.elapsedMsec());
+System.out.println("blocks "+blocks.size());
 
 		timer = new IntervalTimer();
 		routes = Route.getRoutes(globalSession, configRev);
 		routesByRouteIdMap = putRoutesIntoMapByRouteId(routes);
 		routesByRouteShortNameMap = putRoutesIntoMapByRouteShortName(routes);
-		logger.debug("Reading routes took {} msec", timer.elapsedMsec());
-
+		logger.info("Reading routes took {} msec", timer.elapsedMsec());
+		System.out.println("routes "+routes.size());
+		
 		tripPatternsByRouteMap = putTripPatternsInfoRouteMap();
 		
 		timer = new IntervalTimer();
@@ -701,7 +703,8 @@ public class DbConfig {
 		stopsMap = putStopsIntoMap(stopsList);
 		stopsByStopCode = putStopsIntoMapByStopCode(stopsList);
 		routesListByStopIdMap = putRoutesIntoMapByStopId(routes);
-		logger.debug("Reading stops took {} msec", timer.elapsedMsec());
+		logger.info("Reading stops took {} msec", timer.elapsedMsec());
+		System.out.println("stopsList "+stopsList.size());
 
 		timer = new IntervalTimer();
 		agencies = Agency.getAgencies(globalSession, configRev);

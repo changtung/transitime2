@@ -185,6 +185,17 @@
       <pattern>${DEFAULT_PATTERN}</pattern>
     </encoder>
   </appender>
+  
+   <!-- Separate file for RMI logging -->
+  <appender name="RMI" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_FILE_ROOT}/rmi.log.gz</fileNamePattern>
+    </rollingPolicy>
+    <encoder>
+      <charset>UTF-8</charset>
+      <pattern>${DEFAULT_PATTERN}</pattern>
+    </encoder>
+  </appender>
 
   <!-- Separate file for ArrivalDeparture logging -->
   <appender name="ARRIVAL_DEPARTURE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -327,8 +338,13 @@
   </logger>
 
   <logger name="org.transitime.avl"
-          level="info" additivity="false">
+          level="debug" additivity="false">
     <appender-ref ref="AVL" />
+  </logger>
+  
+  <logger name="org.transitime.ipc"
+          level="debug" additivity="false">
+    <appender-ref ref="RMI" />
   </logger>
 
   <!-- For config params it is more complicated because want to both have
@@ -441,7 +457,7 @@
        even though the logging level for root is configured to be info, 
        which is a higher level.
     -->
-  <root level="info">          
+  <root level="debug">          
     <appender-ref ref="CORE" />
     <appender-ref ref="ERROR_SMTP" />
   </root>

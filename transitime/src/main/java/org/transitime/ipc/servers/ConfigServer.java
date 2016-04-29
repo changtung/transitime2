@@ -124,8 +124,10 @@ public class ConfigServer extends AbstractServer implements ConfigInterface {
 	 */
 	@Override
 	public Collection<IpcRouteSummary> getRoutes() throws RemoteException {
+		logger.info("get Routes");
 		// Get the db route info
 		DbConfig dbConfig = Core.getInstance().getDbConfig();
+		logger.info("core"+Core.getInstance().getDbConfig().getAgencies());
 		Collection<org.transitime.db.structs.Route> dbRoutes = 
 				dbConfig.getRoutes();
 		
@@ -299,6 +301,7 @@ public class ConfigServer extends AbstractServer implements ConfigInterface {
 	 */
 	@Override
 	public List<Agency> getAgencies() throws RemoteException {
+		
 		return Core.getInstance().getDbConfig().getAgencies();
 	}
 

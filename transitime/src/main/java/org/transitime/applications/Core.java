@@ -102,6 +102,7 @@ public class Core {
 	 * @param agencyId
 	 */
 	private Core(String agencyId) {
+		logger.info("AgencyId="+agencyId);
 		// Determine configuration rev to use. If one specified on command
 		// line, use it. If not, then use revision stored in db.
 		int configRev;
@@ -110,7 +111,9 @@ public class Core {
 			configRev = Integer.parseInt(configRevStr);
 		} else {
 			// Read in config rev from ActiveRevisions table in db
+			
 			ActiveRevisions activeRevisions = ActiveRevisions.get(agencyId);
+			logger.info("activeRevisions="+activeRevisions);
 			
 			// If config rev not set properly then simply log error.
 			// Originally would also exit() but found that want system to 
@@ -127,6 +130,7 @@ public class Core {
 		// the time will be correct. Therefore this needs to be done right at
 		// the start of the application, before db is read.
 		TimeZone timeZone = Agency.getTimeZoneFromDb(agencyId);
+		System.out.println("Create core timeZone="+timeZone);
 		TimeZone.setDefault(timeZone);
 		
 		// Clears out the session factory so that a new one will be created for
@@ -182,8 +186,9 @@ public class Core {
 	 * @return The Core singleton, or null if could not create it
 	 */
 	synchronized public static Core createCore() {
+		System.out.println("Create core ");
 		String agencyId = AgencyConfig.getAgencyId();
-
+		System.out.println("Create core agencyId="+agencyId);
 		// If agencyId not set then can't create a Core. This can happen
 		// when doing testing.
 		if (agencyId == null) {

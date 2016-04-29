@@ -144,7 +144,7 @@ public class GenericJsonQuery extends GenericQuery {
 	}
 
 	public static void main(String[] args) {
-		String agencyId = "sfmta";
+		String agencyId = "10";
 		
 		String sql = "SELECT * FROM avlreports ORDER BY time DESC LIMIT 5";
 		String str = GenericJsonQuery.getJsonString(agencyId, sql);

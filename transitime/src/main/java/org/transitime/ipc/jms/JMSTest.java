@@ -35,11 +35,11 @@ public class JMSTest {
 			System.err.println("Starting up JMSTest");
 			JMSWrapper tester = JMSWrapper.getJMSWrapper();
 			
-			MessageConsumer msgConsumer = tester.createTopicConsumer("TopicTest");
+			MessageConsumer msgConsumer = tester.createTopicConsumer("10-AVLTopic");
 			while (true) {
 				System.err.println("About to read message");
 				System.err.println("Received message from msgConsumer: " + 
-						JMSWrapper.receiveTextMessage(msgConsumer));
+						JMSWrapper.receiveObjectMessage(msgConsumer));
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {}

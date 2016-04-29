@@ -132,6 +132,7 @@ public class AvlJmsClientModule extends Module {
 		String jmsTopicName = getTopicName(agencyId);		
 		JMSWrapper jmsWrapper = null;
 		try {
+			logger.info("Create JMS wrapper");
 			jmsWrapper = JMSWrapper.getJMSWrapper();
 		} catch (JMSException e1) {
 			logger.error("JMSException when getting JMS Wrapper. " + 
@@ -146,7 +147,7 @@ public class AvlJmsClientModule extends Module {
 			msgConsumer = null;
 			return;
 		}
-		
+		logger.info("Create TopicConsumet JMS wrapper "+ jmsTopicName);
 		msgConsumer = jmsWrapper.createTopicConsumer(jmsTopicName);
 	}
 	

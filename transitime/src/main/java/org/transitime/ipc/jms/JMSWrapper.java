@@ -78,7 +78,7 @@ public class JMSWrapper {
 	// Parameter that specifies URL of where to find the hornetq server
 	private static StringConfigValue hornetqServerURL = 
 			new StringConfigValue("transitime.ipc.hornetqServerURL", 
-					"jnp://localhost:1099",
+					"jnp://localhost:1098",
 					"The URL of the Hornet JMS service to use.");
 	public static String getHornetqServerURL() {
 		return hornetqServerURL.getValue();
@@ -118,18 +118,28 @@ public class JMSWrapper {
 			throws NamingException, JMSException {
 		// Specify how to access the hornetq server
 		java.util.Properties p = new java.util.Properties();	
-		p.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+//		p.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+//				"org.jnp.interfaces.NamingContextFactory");
+//		p.put(javax.naming.Context.URL_PKG_PREFIXES,
+//				"org.jboss.naming:org.jnp.interfaces");			
+//		p.put(javax.naming.Context.PROVIDER_URL, getHornetqServerURL());
+		p.put("java.naming.factory.initial",
 				"org.jnp.interfaces.NamingContextFactory");
-		p.put(javax.naming.Context.URL_PKG_PREFIXES,
+		p.put("java.naming.factory.url.pkgs",
 				"org.jboss.naming:org.jnp.interfaces");			
-		p.put(javax.naming.Context.PROVIDER_URL, getHornetqServerURL());
+		p.put("java.naming.provider.url", "jnp://localhost:1099");
 		
+		logger.info("Initialize wrapper jms!!");
 		// Initialize the member variables so that have a session that can reuse
 		initialContext = new InitialContext(p);
+		logger.info("InitContext connection wrapper jms!! "+ initialContext);
 		connectionFactory = 
-				(ConnectionFactory) initialContext.lookup("/ConnectionFactory");
+				(ConnectionFactory) initialContext.lookup("ConnectionFactory");
+		logger.info("InitContext connection wrapper jms!! "+ connectionFactory);
 		connection = connectionFactory.createConnection();
+		logger.info("Start connection wrapper jms!!");
 		connection.start();
+		logger.info("Create session wrapper jms!!");
 		session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);		
 	}
 	
@@ -179,6 +189,7 @@ public class JMSWrapper {
 		Queue managementQueue = HornetQJMSClient.createQueue("hornetq.management");
 		QueueSession session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
 		connection.start();
+		System.out.println("Create queu");
 		Message message = session.createMessage();
 		JMSManagementHelper.putOperationInvocation(message, 
 				"jms.server", 
@@ -189,9 +200,10 @@ public class JMSWrapper {
 		                       // the dynamically created topic. Found info on doing 
 		                       // this at https://community.jboss.org/thread/165355 .
 		QueueRequestor requestor = new QueueRequestor(session, managementQueue);
-
+		System.out.println("co jest ?"+ message);
 		// Determine if was successful
 		Message reply = requestor.request(message);
+		System.out.println("co jest ?"+ reply.getJMSCorrelationID());
 		boolean topicCreated = JMSManagementHelper.hasOperationSucceeded(reply);
 		
 		if (topicCreated)
@@ -242,6 +254,9 @@ public class JMSWrapper {
 			return topic;
 		} catch (NamingException e) {
 			logger.info("Could not get JMS topic \"" + topicName + 
+					"\". That topic does not exist. " +
+					"Therefore will try to create it dynamically");
+			System.out.println("Could not get JMS topic \"" + topicName + 
 					"\". That topic does not exist. " +
 					"Therefore will try to create it dynamically");
 			try {
@@ -308,6 +323,7 @@ public class JMSWrapper {
 	 * @return
 	 */
 	private MessageConsumer createConsumer(Type type, String name) {
+		System.out.println("createConsumer");
 		Destination destination;
 		if (type == Type.TOPIC)
 			destination = getTopic(name);
@@ -318,12 +334,15 @@ public class JMSWrapper {
 			return null;
 		
 		MessageConsumer messageConsumer = null;
-		
+		System.out.println("TryCatch");
 		try {
+			System.out.println(destination);
 			messageConsumer = session.createConsumer(destination);
+			System.out.println(messageConsumer);
 		} catch (Exception e) {
 			logger.error("Could not created JMS consumer {} \"{}\"", 
 					type, name, e);
+			System.out.println("Could not created JMS consumer {} \"{}\""+type+" "+name+" "+e);
 			
 			// If session closed then try opening it again.
 			if (e instanceof IllegalStateException) {
@@ -334,6 +353,7 @@ public class JMSWrapper {
 					logger.error("Could not created JMS consumer {} \"{}\" " + 
 							"even after calling initiateConnection()", 
 							type, name, e);
+					System.out.println("Could not created JMS consumer {} \"{}\""+type+" "+name+" "+e);
 				}
 			}
 		}
