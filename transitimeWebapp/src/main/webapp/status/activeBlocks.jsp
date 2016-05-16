@@ -178,11 +178,11 @@ function handleAjaxData(routes) {
  					 // And the spans need to be created in reverse order since
  					 // using css float: right to get spans displayed on the right.
  				     "  <span class='routeValue' id='routeEarlyVehicles' title='Number of vehicles that are more than 1 minute early'></span>" + 
- 				     "  <span class='routeLabel' id='routeEarlyVehiclesLabel' title='Number of vehicles that are more than 1 minute early'>Early:</span>" +
+ 				     "  <span class='routeLabel' id='routeEarlyVehiclesLabel' title='Number of vehicles that are more than 1 minute early'>Przyspieszone:</span>" +
  				     "  <span class='routeValue' id='routeOnTimeVehicles' title='Number of vehicles that are on time'></span>" + 
- 				     "  <span class='routeLabel' id='routeOnTimeVehiclesLabel' title='Number of vehicles that are on time'>On Time:</span>" +
+ 				     "  <span class='routeLabel' id='routeOnTimeVehiclesLabel' title='Number of vehicles that are on time'>Na czas:</span>" +
  				     "  <span class='routeValue' id='routeLateVehicles' title='Number of vehicles more that 4 minutes late'></span>" + 
- 				     "  <span class='routeLabel' id='routeLateVehiclesLabel' title='Number of vehicles more that 4 minutes late'>Late:</span>" +
+ 				     "  <span class='routeLabel' id='routeLateVehiclesLabel' title='Number of vehicles more that 4 minutes late'>Opóżnione:</span>" +
  				     "  <span class='routeValue' id='routeVehicles' title='Number of vehicles assigned to blocks and predictable for the route'></span>" + 
  				     "  <span class='routeLabel' id='routeVehiclesLabel' title='Number of vehicles assigned to blocks and predictable for the route'>Assigned:</span>" +
  				     "  <span class='routeValue' id='routeBlocks' title='Number of blocks currently active for the route'></span>" + 

@@ -110,7 +110,7 @@ if ((beginTime != null && !beginTime.isEmpty()) || (endTime != null && !endTime.
             },
           error: function(request, status, error) {
           	$("#errorMessage").html(request.responseText +
-			  "<br/><br/>Hit back button to try other parameters.")
+			  "<br/><br/>Przyciśnij Wstecz, aby spróbować innych parametrów.")
 			$("#errorMessage").fadeIn("slow");
             },
           }).responseJSON;

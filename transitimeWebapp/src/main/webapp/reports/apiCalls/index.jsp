@@ -88,10 +88,10 @@ if (agencyId == null || agencyId.isEmpty()) {
       SIRI Stop Monitoring</a></li>
 
   <li><a href="horizStopsScheduleApiParams.jsp?a=<%= agencyId %>"
-    title="Rozkład dla linii. For displaying schedule with stops listed in horizontal direction">
+    title="Rozkład dla linii. przystanki poziomo">
       Rozkład dla linii, przystanki poziomo</a></li>
   <li><a href="vertStopsScheduleApiParams.jsp?a=<%= agencyId %>"
-    title="Rozkład dla linii. For displaying schedule with stops listed in vertical direction">
+    title="Rozkład dla linii. przystanki pionowo">
       Rozkład dla linii, przystanki pionowo</a></li>
 </ul>
 

@@ -300,6 +300,7 @@ abstract public class PredictionAccuracyQuery {
 				+ sourceSql 
 				+ predTypeSql;
 
+		logger.info(sql);
 		PreparedStatement statement = null;
 		try {
 			statement = connection.prepareStatement(sql);

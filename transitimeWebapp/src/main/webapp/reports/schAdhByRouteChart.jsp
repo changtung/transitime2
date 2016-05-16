@@ -67,7 +67,7 @@
   }  
 %>
 
-  <div id="title">Schedule Adherence by Route</div>
+  <div id="title">Przestrzeganie rozkładów według linii</div>
   <div id="subtitle"><%= chartSubtitle %></div>
   <div id="chart_div"></div>
   <div id="loading"></div>
@@ -155,15 +155,15 @@ var globalNumberOfRoutes;
 		             route.name, 
 		             latePercent, 
 		             	'opacity: 1.0', 
-		             	'Late: ' + route.late + ' out of ' + route.total + ' stops', 
+		             	'Opóźnienia: ' + route.late + ' z ' + route.total + ' przystanków', 
 		             	route.late > 0 ? latePercent.toFixed(1) + '%' : '',
 		             ontimePercent, 
 		             	'opacity: 1.0', 
-		             	'On time: ' + route.ontime + ' out of ' + route.total + ' stops', 
+		             	'Na czas ' + route.ontime + ' z ' + route.total + ' przystanków', 
 	             	 	route.ontime > 0 ? ontimePercent.toFixed(1) + '%' : '',
 			         earlyPercent, 
 		             	'opacity: 1.0', 
-		             	'Early: ' + route.early + ' out of ' + route.total + ' stops', 
+		             	'Przyspieszenia: ' + route.early + ' z ' + route.total + ' przystanków', 
 		             	(route.early > 0) ? earlyPercent.toFixed(1) + '%' : ''
 		             ];
 		  dataArray.push(dataArrayForRoute);
@@ -183,15 +183,15 @@ var globalNumberOfRoutes;
 		     		 'Combined',
 		     		 latePercent, 
 		     		 	'opacity: 1.0', 
-		     		 	'Late: ' + totalLate + ' out of ' + totalTotal + ' stops', 
+		     		 	'Opóźnienia: ' + totalLate + ' z ' + totalTotal + ' przystanków', 
 		     		 	latePercent.toFixed(1) + '%',
 			     	 ontimePercent, 
 			     	 	'opacity: 1.0', 
-			     	 	'On time: ' + totalOntime + ' out of ' + totalTotal + ' stops', 
+			     	 	'Na czas: ' + totalOntime + ' z' + totalTotal + ' przystanków', 
 			     	 	ontimePercent.toFixed(1) + '%',
 		     		 earlyPercent, 
 		     		 	'opacity: 1.0', 
-		     		 	'Early: ' + totalEarly + ' out of ' + totalTotal + ' stops', 
+		     		 	'Przyspieszenia: ' + totalEarly + ' z ' + totalTotal + ' przystanków', 
 		     		 	earlyPercent.toFixed(1) + '%'
 		     		 ];
 		  dataArray.push(dataArrayForRoute);		  
@@ -222,7 +222,7 @@ var globalNumberOfRoutes;
 	    error: function(request, status, error) {
 	       //alert(error + '. ' + request.responseText);
 	     	$("#errorMessage").html(request.responseText +
-	     			"<br/><br/>Hit back button to try other parameters.");
+	     			"<br/><br/>Przyciśnij Wstecz, aby spróbować innych parametrów.");
 	        $("#errorMessage").fadeIn("fast");
 	        $("#loading").fadeOut("slow");
 	       },

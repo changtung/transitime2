@@ -136,7 +136,7 @@ String jsonString = ChartGenericJsonQuery.getJsonString(agencyId, sql);
 
 // If no data then return error status with an error message
 if (jsonString == null || jsonString.isEmpty()) {
-    String message = "No data for beginDate=" + beginDate
+    String message = "Brak danych dla beginDate=" + beginDate
 	    + " numDays=" + numDays 
 	    + " beginTime=" + beginTime
 	    + " endTime=" + endTime 

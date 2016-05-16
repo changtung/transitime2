@@ -51,7 +51,7 @@ String sql =
     + " GROUP BY r.name, r.routeorder ORDER BY r.routeorder, r.name;";
 
 // Just for debugging
-System.out.println("\nFor schedule adherence by route query sql=\n" + sql);
+System.out.println("\nZapytanie dla przestrzegania rozkładów według linii sql=\n" + sql);
     		
 // Do the query and return result in JSON format    
 String agencyId = request.getParameter("a");

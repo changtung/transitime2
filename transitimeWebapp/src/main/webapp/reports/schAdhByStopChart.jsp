@@ -142,15 +142,15 @@
 		             stop.stop_name + ' ', 
 		             latePercent, 
 		             	'opacity: 1.0', 
-		             	'Late: ' + stop.late + ' out of ' + stop.total + ' times', 
+		             	'Opóźnienia: ' + stop.late + ' z ' + stop.total + ' times', 
 		             	stop.late > 0 ? latePercent.toFixed(1) + '%' : '',
 		             ontimePercent, 
 		             	'opacity: 1.0', 
-		             	'On time: ' + stop.ontime + ' out of ' + stop.total + ' times', 
+		             	'Na czas: ' + stop.ontime + ' z ' + stop.total + ' times', 
 		             	stop.ontime > 0 ? ontimePercent.toFixed(1) + '%' : '',
 			         earlyPercent, 
 		             	'opacity: 1.0', 
-		             	'Early: ' + stop.early + ' out of ' + stop.total + ' times', 
+		             	'Przyspieszenia: ' + stop.early + ' z ' + stop.total + ' times', 
 		             	(stop.early > 0) ? earlyPercent.toFixed(1) + '%' : ''
 		             ];
 		  dataArray.push(dataArrayForStop);
@@ -169,15 +169,15 @@
 	     		 'Total: ',
 	     		 latePercent, 
 	     		 	'opacity: 1.0', 
-	     		 	'Late: ' + totalLate + ' out of ' + totalTotal + ' times', 
+	     		 	'Opóźnienia: ' + totalLate + ' z ' + totalTotal + ' times', 
 	     		 	latePercent.toFixed(1) + '%',
 		     	 ontimePercent, 
 		     	 	'opacity: 1.0', 
-		     	 	'On time: ' + totalOntime + ' out of ' + totalTotal + ' times', 
+		     	 	'Na czas: ' + totalOntime + ' z ' + totalTotal + ' times', 
 		     	 	ontimePercent.toFixed(1) + '%',
 	     		 earlyPercent, 
 	     		 	'opacity: 1.0', 
-	     		 	'Early: ' + totalEarly + ' out of ' + totalTotal + ' times', 
+	     		 	'Przyspieszenia: ' + totalEarly + ' z ' + totalTotal + ' times', 
 	     		 	earlyPercent.toFixed(1) + '%'
 	     		 ];
 	  dataArray.push(dataArrayForStop);		  
@@ -243,7 +243,7 @@
 	  }
 	%>
 	  
-	$("#title").html('Schedule Adherence for ' + routeName);
+	$("#title").html('Przestrzeganie rozkładów dla ' + routeName);
 	$("#subtitle").html('<%= chartParams %>');
   }
   
@@ -266,7 +266,7 @@
 	    error: function(request, status, error) {
 	       //alert(error + '. ' + request.responseText);
 	     	$("#errorMessage").html(request.responseText +
-	     			"<br/><br/>Hit back button to try other parameters.");
+	     			"<br/><br/>Przyciśnij Wstecz, aby spróbować innych parametrów.");
 	        $("#errorMessage").fadeIn("fast");
 	        $("#loading").fadeOut("slow");
 	       },

@@ -121,7 +121,7 @@ function getDataTable() {
      error: function(request, status, error) {
        //alert(error + '. ' + request.responseText);
      	$("#errorMessage").html(request.responseText +
-     			"<br/><br/>Hit back button to try other parameters.");
+     			"<br/><br/>Przyciśnij Wstecz, aby spróbować innych parametrów.");
         $("#errorMessage").fadeIn("slow");
        },
      }).responseJSON;

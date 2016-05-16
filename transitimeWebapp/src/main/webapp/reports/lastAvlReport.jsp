@@ -52,7 +52,7 @@ $( document ).ready(function() {
 </head>
 <body>
 <%@include file="/template/header.jsp" %>
-<div id="title">Last GPS Reports for Past 24 Hours</div>
+<div id="title">Ostatnie raporty GPS z ostatnich 24 godzin</div>
 <table id="dataTable">
   <tr><th>Vehicle</th><th>Last GPS</th></tr>
   </table>

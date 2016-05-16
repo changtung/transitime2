@@ -98,14 +98,14 @@
   		}
   		
   		content +=
-  		  "<tr><td class='popupTableLabel'>Schedule&nbsp;Adh:</td><td>" + avl.schedadh + "</td></tr>"
- 		+ "<tr><td class='popupTableLabel'>Lat/Lon:</td><td>" + avl.lat + ", " + avl.lon + "</td></tr>"
-  		+ "<tr><td class='popupTableLabel'>Speed:</td><td>" + speed + " kph</td></tr>"
-  		+ "<tr><td class='popupTableLabel'>Heading:</td><td>" + avl.heading + " degrees</td></tr>"
-  		+ "<tr><td class='popupTableLabel'>Delayed:</td><td>" + avl.isdelayed + "</td></tr>"
-  		+ "<tr><td class='popupTableLabel'>Layover:</td><td>" + avl.islayover + "</td></tr>"
-  		+ "<tr><td class='popupTableLabel'>Wait&nbsp;Stop:</td><td>" + avl.iswaitstop + "</td></tr>"
-  		+ "<tr><td class='popupTableLabel'>Time&nbsp;Proc:</td><td>" + avl.timeprocessed + "</td></tr>"
+  		  "<tr><td class='popupTableLabel'>Przestrzeganie rozkładu:</td><td>" + avl.schedadh + "</td></tr>"
+ 		+ "<tr><td class='popupTableLabel'>Szer/Dług:</td><td>" + avl.lat + ", " + avl.lon + "</td></tr>"
+  		+ "<tr><td class='popupTableLabel'>Prędkość:</td><td>" + speed + " kph</td></tr>"
+  		+ "<tr><td class='popupTableLabel'>Kierunek:</td><td>" + avl.heading + " stopni</td></tr>"
+  		+ "<tr><td class='popupTableLabel'>Opóźniony:</td><td>" + avl.isdelayed + "</td></tr>"
+  		+ "<tr><td class='popupTableLabel'>Postój:</td><td>" + avl.islayover + "</td></tr>"
+  		+ "<tr><td class='popupTableLabel'>Oczekuje na przystanku:</td><td>" + avl.iswaitstop + "</td></tr>"
+  		+ "<tr><td class='popupTableLabel'>Aktualizacja</td><td>" + avl.timeprocessed + "</td></tr>"
   		+ "</table>";
 	  		
   	  L.popup(avlPopupOptions)

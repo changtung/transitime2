@@ -33,7 +33,7 @@
     <input id="allowableEarly" name="allowableEarly"
     	title="Dopuszczalne przyspieszenie, aby prognoza była nadal akceptowana. Proszę użyć wartości ujemnej, aby wskazać przyspieszenie." 
     	size="1"
-    	value="1.0" /> <span class="note">minutes</span>
+    	value="1.0" /> <span class="note">minut</span>
   </div>
  
    <div class="param">
@@ -41,7 +41,7 @@
     <input id="allowableLate" name="allowableLate"
     	title="Dopuszczalne opóźnienie, aby prognoza była nadal akceptowana. Proszę użyć wartości dodatniej, aby wskazać przyspieszenie." 
     	size="1" 
-    	value="4.0"/> <span class="note">minutes</span>
+    	value="4.0"/> <span class="note">minut</span>
   </div>
     
     <jsp:include page="params/submitReport.jsp" />

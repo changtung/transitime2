@@ -205,7 +205,7 @@ function predictionCallback(preds, status) {
 				if (verbose)
 					content += ' <span class="vehicle">(vehicle ' + pred.vehicle + ')</span>';
 			}
-			content += ' minutes';
+			content += ' minut';
 			
 			content += '</span>';
 		} else {

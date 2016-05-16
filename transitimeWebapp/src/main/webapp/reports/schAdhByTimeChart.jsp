@@ -136,13 +136,13 @@ function createDataTableAndDrawChart(jsonData) {
     	
     	var annotation = bucket.counts_per_time_period;
     	
-    	var tooltip = bucket.counts_per_time_period + ' stops for vehicles that are ';
+    	var tooltip = bucket.counts_per_time_period + ' przystanków dla pojazdów ';
     	if (bucket.time_period < 0) {
     		// vehicle late
-    		tooltip += -(bucket.time_period+30) + 's to ' + (-bucket.time_period) + 's late. ';
+    		tooltip += -(bucket.time_period+30) + 's to ' + (-bucket.time_period) + 's  opóźnionych. ';
     	} else {
     		// vehicle early
-    		tooltip += bucket.time_period + 's to ' + (bucket.time_period+30) + 's early. ';
+    		tooltip += bucket.time_period + 's to ' + (bucket.time_period+30) + 's przyspieszonych. ';
     	}
     	
     	var row = [timeFloor, counts, style, annotation, tooltip];
@@ -176,12 +176,12 @@ function createDataTableAndDrawChart(jsonData) {
           chartArea: {top:10, width: '86%', height: '90%'},
           vAxis: {
         	  minValue: 0,
-        	  title: "Number of stops per time interval",
+        	  title: "Interwał liczby przystanków w czasie ",
         	  textStyle: {fontSize: 12},
         	  },
           hAxis: { 
         	  ticks: ticks,
-        	  title: "Minutes vehicle late (negative) or early (positive)",
+        	  title: "Ilość minut opóźnienia (wartość ujemna) lub przyspieszenia (wartość dodatnia) pojazdu",
         	  // The chart always draws the baseline at value 0 over the chart.
         	  // Since the baseline isn't true zero, since using bars and 
         	  // putting tick marks at the edges of the bars, don't want this
@@ -206,7 +206,7 @@ function createDataTableAndDrawChart(jsonData) {
 function determineChartTitle(routeData) {
 	var agencyName = routeData.agency;
 	var routeName = routeData.routes[0].name;
-	$("#title").html('Schedule Adherence for ' + routeName);
+	$("#title").html('Przestrzeganie rozkładów dla ' + routeName);
 }
 
 function getDataAndDrawChart() {
@@ -227,7 +227,7 @@ function getDataAndDrawChart() {
 	    error: function(request, status, error) {
 	       //alert(error + '. ' + request.responseText);
 	     	$("#errorMessage").html(request.responseText +
-	     			"<br/><br/>Hit back button to try other parameters.");
+	     			"<br/><br/>Przyciśnij Wstecz, aby spróbować innych parametrów.");
 	        $("#errorMessage").fadeIn("fast");
 	        $("#loading").fadeOut("slow");
 	       },

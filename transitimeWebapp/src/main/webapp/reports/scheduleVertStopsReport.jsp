@@ -44,7 +44,7 @@ if (agencyId == null || agencyId.isEmpty()) {
   <script type="text/javascript">
       function dataReadCallback(jsonData) {
 	      // Set the title now that have the route name from the API
-	      $('#title').html('Schedule for ' + jsonData.routeName);
+	      $('#title').html('Rozkład dla ' + jsonData.routeName);
 	      
 	      // Go through all service classes and directions for route
     	  for (var i=0; i<jsonData.schedule.length; ++i) {
@@ -52,8 +52,8 @@ if (agencyId == null || agencyId.isEmpty()) {
     		  
     		  // Create title for schedule
     		  $('body').append("<div id='scheduleTitle'>" 
-    				  + "Direction: " + schedule.directionId 
-    				  + ", Service: " + schedule.serviceName
+    				  + "Kierunek: " + schedule.directionId 
+    				  + ", Kalendarz: " + schedule.serviceName
     				  + "</div>");
     		  
     		  var table = $("<table id='dataTable'></table>").appendTo('body')[0];
