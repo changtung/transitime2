@@ -365,7 +365,7 @@
   </logger>
 
   <logger name="org.transitime.avl"
-          level="debug" additivity="false">
+          level="error" additivity="false">
     <appender-ref ref="AVL" />
   </logger>
   

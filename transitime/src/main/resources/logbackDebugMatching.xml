@@ -179,6 +179,8 @@
   <appender name="AVL" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <fileNamePattern>${LOG_FILE_ROOT}/avl.log.gz</fileNamePattern>
+            <maxHistory>5</maxHistory>
+      <totalSizeCap>100MB</totalSizeCap>
     </rollingPolicy>
     <encoder>
       <charset>UTF-8</charset>
@@ -327,7 +329,7 @@
   </logger>
 
   <logger name="org.transitime.avl"
-          level="info" additivity="false">
+          level="error" additivity="false">
     <appender-ref ref="AVL" />
   </logger>
 
