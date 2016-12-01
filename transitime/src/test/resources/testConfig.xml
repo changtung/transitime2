@@ -17,11 +17,10 @@
     </avl>   
     <db>
         <dbName>transiTime</dbName>
-        <dbHost>localhost:5432</dbHost>
-        <dbType>postgresql</dbType>
-        <dbUserName>transiTime</dbUserName>
-        <dbPassword>welcome</dbPassword>
-    </db>     
+        <dbType>h2</dbType>
+        <dbUserName>sa</dbUserName>
+        <dbPassword></dbPassword>
+    </db>
     <hibernate>
         <configFile>postgres_hibernate.cfg.xml</configFile>        
     </hibernate>
